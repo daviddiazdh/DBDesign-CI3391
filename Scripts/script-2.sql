@@ -1,5 +1,17 @@
-DROP TABLE solicitud;
+DROP TABLE solicitud CASCADE;
 
-DROP TABLE marca;
+DROP TABLE marca CASCADE;
 
-DROP TABLE prioridad_extranjera;
+DROP TABLE prioridad_extranjera CASCADE;
+
+DROP TABLE prioriza CASCADE;
+
+DROP TABLE signo CASCADE;
+
+DROP TABLE pais CASCADE;
+
+DROP TABLE solicitante CASCADE;
+
+DROP TABLE solicita CASCADE;
+
+DROP TABLE solicitante_natural CASCADE;

@@ -6,6 +6,27 @@ CREATE TABLE solicitud (
     marca INT NOT NULL
 );
 
+CREATE TABLE solicita(
+    fk_solicitud INT NOT NULL,
+    fk_solicitante_tipo VARCHAR(9) NOT NULL,
+    fk_solicitante_numero INT NOT NULL
+);
+
+CREATE TABLE solicitante (
+    documento_tipo VARCHAR(9) NOT NULL,
+    documento_numero INT NOT NULL,
+    correo VARCHAR(160),
+    fax VARCHAR(100),
+    telefono VARCHAR(200)
+);
+
+CREATE TABLE solicitante_natural (
+    documento_tipo VARCHAR(9) NOT NULL,
+    documento_numero INT NOT NULL,
+    nombre VARCHAR(100),
+    celular VARCHAR(14)
+);
+
 CREATE TABLE marca (
     id_marca SERIAL PRIMARY KEY,
     tipo VARCHAR(40),
@@ -23,6 +44,20 @@ CREATE TABLE prioridad_extranjera (
     id_prioridad SERIAL PRIMARY KEY,
     numero_prioridad INT NOT NULL,
     fecha VARCHAR(20)
+);
+
+CREATE TABLE signo (
+    id_signo SERIAL PRIMARY KEY,
+    marca INT NOT NULL,
+    tipo VARCHAR(12),
+    nombre VARCHAR(100),
+    imagen VARCHAR(100),
+    decripcion VARCHAR(200)
+);
+
+CREATE TABLE pais (
+    nombre VARCHAR(100),
+    fk_prioridad INT NOT NULL
 );
 
 INSERT INTO solicitud (fecha, numero_tramite, numero_referencia, marca) VALUES ('martes', 0, 0, 1);
