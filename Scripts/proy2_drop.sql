@@ -15,3 +15,7 @@ DROP TABLE solicitante CASCADE;
 DROP TABLE solicita CASCADE;
 
 DROP TABLE solicitante_natural CASCADE;
+
+DROP TABLE solicitante_juridico CASCADE;
+
+DROP TABLE apoderado CASCADE;
