@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Cargar el archivo Excel
-df = pd.read_excel("datos_proy2.xlsx", sheet_name=2, engine="openpyxl")  # O usa pd.read_csv("datos.csv")
+df = pd.read_excel("datos_proy2.xlsx", sheet_name=2, engine="openpyxl")
 
 columnas_a_excluir = ["query", "query dated", "numero_solicitud", "Fecha", "Tipo", "tipo de signo", "Clase", "Num Registro", "Fecha Registro", 
                         "Fecha Vencimiento", "Signo", "Estado", "Distingue", "Tramitante/Agente", "Numero poder", "link_numero_solicitud", 

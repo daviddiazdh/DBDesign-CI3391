@@ -3,20 +3,20 @@ import pandas as pd
 # Cargar el archivo Excel
 df = pd.read_excel("datos_proy2.xlsx", sheet_name=2, engine="openpyxl")  # O usa pd.read_csv("datos.csv")
 
-# Devuelve: "numero_solicitud", "Fecha", "id_marca"
+# Devuelve: "numero_solicitud", "Prioridad extranjera 2",
 
-columnas_a_excluir = ["query", "query dated", "Tipo", "Clase",  "Distingue", "tipo de signo", "Num Registro", "Fecha Registro", 
+columnas_a_excluir = [ "Fecha", "id_marca", "query", "query dated", "Tipo", "Clase",  "Distingue", "tipo de signo", "Num Registro", "Fecha Registro", 
                         "Fecha Vencimiento", "Signo", "Estado", "Tramitante/Agente", "Numero poder", "link_numero_solicitud", 
                         "Tabla", "Descripción etiqueta", "Info Adicional", "Codigo", "Nombre titular", "Domicilio titular", "Nacionalidad titular", 
                         "Fecha Registro 1", "Fecha Vencimiento registro", "Nro documento ultima operacion", "Ultima operacion", "Fecha pago registro", 
                         "Comentarios", "Link comprobante recepcion", "vacio1", "vacio2", "vacio3", "id solicitante1", "id solicitante2", "id solicitante3",
-                        "Prioridad extranjera 1", "País 1", "Fecha 1", "Prioridad extranjera 2", "País 2", "Fecha 2"]  # Lista de columnas a excluir
+                        "País 1", "Fecha 1", "País 2","Prioridad extranjera 1",  "Fecha 2"]  # Lista de columnas a excluir
 df = df.drop(columns=columnas_a_excluir)
 
 # Nombre de la tabla
 tabla = "bichito"
 
-df["Fecha"] = df["Fecha"].dt.date
+#df["Fecha"] = df["Fecha"].dt.date
 
 
 # Generar sentencias INSERT
@@ -35,7 +35,7 @@ for _, row in df.iterrows():
 sql_script += ",\n".join(values) + ";\n"
 
 # Guardar en un archivo .sql
-with open("prueba.sql", "w", encoding="utf-8") as f:
+with open("prioriza2.sql", "w", encoding="utf-8") as f:
     f.write(sql_script)
 
 print("Archivo SQL generado correctamente.")

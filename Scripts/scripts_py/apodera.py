@@ -3,9 +3,9 @@ import pandas as pd
 # Cargar el archivo Excel
 df = pd.read_excel("datos_proy2.xlsx", sheet_name=1, engine="openpyxl")  # O usa pd.read_csv("datos.csv")
 
-# Incluye : "ID", "Tipo", "Documento", "Domicilio", "Pais de Domicilio", "Pais de Nacionalidad", "Correo Electronico", "Telefono", "Celular", "Fax"
+# Incluye : "ID", "Numero de agente", "Numero de poder"
 
-columnas_a_excluir = ["Nombre/Razon Social", "Representante legal", "Numero de poder", "Numero de agente", "Cedula"]  # Lista de columnas a excluir
+columnas_a_excluir = ["Nombre/Razon Social", "Representante legal", "Tipo", "Documento", "Domicilio", "Pais de Domicilio", "Pais de Nacionalidad", "Correo Electronico", "Telefono", "Celular", "Fax", "Cedula"]  # Lista de columnas a excluir
 df = df.drop(columns=columnas_a_excluir)
 
 # Nombre de la tabla
@@ -27,7 +27,7 @@ for _, row in df.iterrows():
 sql_script += ",\n".join(values) + ";\n"
 
 # Guardar en un archivo .sql
-with open("insert_solicitantes.sql", "w", encoding="utf-8") as f:
+with open("insert_apodera.sql", "w", encoding="utf-8") as f:
     f.write(sql_script)
 
 print("Archivo SQL generado correctamente.")
